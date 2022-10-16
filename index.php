@@ -17,8 +17,9 @@
     require_once('class/notas.php');
 
     $obj_notas = new Nota();
+    $notas= 1;
     $notas = $obj_notas->mostrar_notas();
-
+    
     ?>
 
     <header>
@@ -26,6 +27,10 @@
 
     <main class="main">
         <h3>Actividades</h3>
+        
+        <div class="boton">
+            <a href="agregar.php">Agregar Actividad</a>
+        </div>
         <section>
             <section class="actividades">
 
@@ -38,7 +43,7 @@
                             </div>
                             <div>
                                 <a href="eliminar.php?id=<?= $nota['id'] ?>"><i class="fa-solid ff fa-trash"></i></a>
-                                <a href=""><i class="fa-solid ff fa-pen-to-square"></i></a>
+                                <a href="editar.php?id=<?= $nota['id'] ?>"><i class="fa-solid ff fa-pen-to-square"></i></a>
                                 <i class="fa-solid dd fa-chevron-up"></i>
                             </div>
                         </div>
