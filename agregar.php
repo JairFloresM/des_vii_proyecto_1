@@ -10,16 +10,14 @@
     <?php
         include("class/actividades.php");
         $obj_actividades=new actividad();
-        $actividades=$obj_actividades->mostrar_actividades();
-        $nactividad=count($actividades);
-        $valor="Holi";
+        $actividades=$obj_actividades->mostrar_actividades(); 
     ?>
 <h1>Agregar Nota</h1>
     <div class="boton">
         <a href="index.php">Regresar</a>
     </div>
     <form action="agregar.php" method="post">
-        Titulo: <input type="text" name="titulo" value="<?php echo $valor?>"><br>
+        Titulo: <input type="text" name="titulo"><br>
         Fecha: <input type="date" name="fecha" id=""><br>
         Hora: <input type="time" name="hora" id=""><br>
         Ubicacion: <input type="text" name="ubicacion"><br>
