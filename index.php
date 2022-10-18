@@ -17,24 +17,29 @@
     require_once('class/notas.php');
 
     $obj_notas = new Nota();
-    $notas= 1;
-    $notas = $obj_notas->mostrar_notas();
-    
+    $notas = 1;
+    //$notas = $obj_notas->mostrar_notas();
+    $notas = $obj_notas->notas_hoy();
     ?>
 
     <header>
     </header>
 
     <main class="main">
-        <h3>Actividades</h3>
-        
-        <div class="boton">
+        <h3>Actividades Para hoy</h3>
+
+        <div class="nav">
             <a href="agregar.php">Agregar Actividad</a>
+            <a href="reporte.php">Reporte de Actividades</a>
+
         </div>
         <section>
             <section class="actividades">
 
-                <?php foreach ($notas as $nota) { ?>
+                <?php
+                foreach ($notas as $nota) {
+
+                ?>
                     <div class="card">
                         <div class="card__header">
                             <div class="">
