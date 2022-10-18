@@ -53,3 +53,14 @@ BEGIN
         INNER JOIN actividades a ON a.id = n.id_actividad WHERE n.id=param_id;
 END$$
 DELIMITER ;
+
+------Mostrar notas del dia actual-------
+DELIMITER $$
+CREATE PROCEDURE `sp_notas_hoy`()
+BEGIN
+    select n.id, n.titulo, n.fecha, n.hora, n.ubicacion, n.correo, n.repetir, 
+            n.tiempo_repetir_hora, a.descripcion from notas n 
+        INNER JOIN actividades a ON a.id = n.id_actividad
+            where fecha = DATE_FORMAT(NOW(), '%y-%m-%d');
+END$$
+DELIMITER ;
