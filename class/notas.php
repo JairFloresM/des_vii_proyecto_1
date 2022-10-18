@@ -86,4 +86,20 @@ class Nota extends Conexion
         return $stmt;
     }
     
+    public function notas_hoy()
+    {
+        $notas = [];
+        $query = "CALL sp_notas_hoy()";
+
+        $stmt = $this->_db->prepare($query);
+        $stmt->execute();
+        $resp = $stmt->get_result();
+
+        while ($nota = $resp->fetch_array(MYSQLI_ASSOC)) {
+            array_push($notas, $nota);
+        }
+
+        return $notas;
+    } 
+    
 }
