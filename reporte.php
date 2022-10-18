@@ -13,10 +13,9 @@
 
 <body>
 
-    <h3>Reporte de actividades</h3>
-    <div class="nav">
-        <a href="index.php">Regresar</a>
-
+    <h2 class="centrar-texto">Reporte de actividades</h2>
+    <div >
+        <a href="index.php" class="boton">Regresar</a>
     </div>
 
     <?php
@@ -32,10 +31,10 @@
 
 
     ?>
-
-    <form action="reporte.php" method="post">
+    
+    <form action="reporte.php" method="post" class="formulario-rep">
         Filtrar por
-        <select name="filtro">
+        <select name="filtro" class="filtro">
             <option value="descripcion" selected>Actividad</option>
             <option value="day">Dia</option>
             <option value="week">Semana</option>
@@ -43,12 +42,13 @@
             <option value="year">Año</option>
         </select>
         con el valor de
-        <input type="text" name="opcion">
-        <input name="filtrar" value="Filtrar Actividades" type="submit">
-        <input name="todos" value="Todas las Actividades" type="submit">
+        
+        <input type="text" name="opcion" class="opcion">
+        <input name="filtrar" value="Filtrar Actividades" type="submit" class="boton">
+        <input name="todos" value="Todas las Actividades" type="submit" class="boton">
     </form>
-
-    <table border="true">
+    
+    <table class="tabla">
         <thead>
             <td>Id</td>
             <td>Titulo</td>

@@ -5,6 +5,7 @@
     --blanco:#fff;
     --negro333:#333;
     --negro222:#222;
+    --gris:#808080;
 }
 
 * {
@@ -165,7 +166,6 @@ form {
     
 }
 .formulario{
-    
     margin: 20px auto 0 auto;
     width: 95%;
     padding: 5rem;
@@ -199,4 +199,31 @@ h3{
 .boton:hover {
     background: var(--negro222);
     color: var(--blanco);
+}
+/* reporte */
+.tabla{
+    border: 1px solid var(--negro333);
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+.tabla td{
+    padding: 10px;
+    border: 1px solid var(--negro333);
+}
+.tabla tr:hover{
+    background-color: var(--gris);
+}
+.formulario-rep{  
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid var(--negro333);
+    
+}
+.filtro{
+    width: 20%;
+    
+}
+.opcion{
+    width: 20%;
 }
