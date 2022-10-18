@@ -36,6 +36,46 @@ class Nota extends Conexion
         return $notas;
     }
 
+    public function filtar_id($id){
+        $instruccion="CALL sp_mostrar_por_id('".$id."')";
+        $consulta=$this->_db->query($instruccion);
+        $resultado=$consulta->fetch_all(MYSQLI_ASSOC);
+
+        if($resultado){
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
+    }
+
+    public function editar($id,$titulo, $fecha,$hora,$ubicacion,$correo,$repetir,$tiemporep,$actividad){
+        $instruccion="CALL sp_actualizar_nota('".$id."','".$titulo."','".$fecha."','".$hora."','".$ubicacion."','".$correo."','".$repetir."','".$tiemporep."','".$actividad."')";
+
+        $actualiza=$this->_db->query($instruccion);
+        
+
+        if($actualiza){
+            return $actualiza;
+            $actualiza->close();
+            $this->_db->close();
+        }
+
+
+    }
+
+    public function agregar_nota($titulo, $fecha,$hora,$ubicacion,$correo,$repetir,$tiemporep,$actividad){
+        $instruccion="CALL sp_crear_nota('".$titulo."','".$fecha."','".$hora."','".$ubicacion."','".$correo."','".$repetir."','".$tiemporep."','".$actividad."')";
+
+
+        $actualiza=$this->_db->query($instruccion);
+        
+
+        if($actualiza){
+            return $actualiza;
+            $actualiza->close();
+            $this->_db->close();
+        }
+    }
     public function eliminar_nota($id)
     {
         $query = "CALL sp_eliminar_nota(?)";
@@ -45,4 +85,5 @@ class Nota extends Conexion
 
         return $stmt;
     }
+    
 }
