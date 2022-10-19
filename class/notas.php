@@ -31,10 +31,51 @@ class Nota extends Conexion
 
         while ($nota = $resp->fetch_array(MYSQLI_ASSOC)) {
             array_push($notas, $nota);
+            //print_r($nota);
         }
         return $notas;
     }
 
+    public function filtar_id($id){
+        $instruccion="CALL sp_mostrar_por_id('".$id."')";
+        $consulta=$this->_db->query($instruccion);
+        $resultado=$consulta->fetch_all(MYSQLI_ASSOC);
+
+        if($resultado){
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
+    }
+
+    public function editar($id,$titulo, $fecha,$hora,$ubicacion,$correo,$repetir,$tiemporep,$actividad){
+        $instruccion="CALL sp_actualizar_nota('".$id."','".$titulo."','".$fecha."','".$hora."','".$ubicacion."','".$correo."','".$repetir."','".$tiemporep."','".$actividad."')";
+
+        $actualiza=$this->_db->query($instruccion);
+        
+
+        if($actualiza){
+            return $actualiza;
+            $actualiza->close();
+            $this->_db->close();
+        }
+
+
+    }
+
+    public function agregar_nota($titulo, $fecha,$hora,$ubicacion,$correo,$repetir,$tiemporep,$actividad){
+        $instruccion="CALL sp_crear_nota('".$titulo."','".$fecha."','".$hora."','".$ubicacion."','".$correo."','".$repetir."','".$tiemporep."','".$actividad."')";
+
+
+        $actualiza=$this->_db->query($instruccion);
+        
+
+        if($actualiza){
+            return $actualiza;
+            $actualiza->close();
+            $this->_db->close();
+        }
+    }
     public function eliminar_nota($id)
     {
         $query = "CALL sp_eliminar_nota(?)";
@@ -44,20 +85,6 @@ class Nota extends Conexion
 
         return $stmt;
     }
-
-    public function agregar_nota($titulo, $fecha, $hora, $ubicacion, $correo, $repetir, $tiempo_repetir, $actividad)
-    {
-        $query = "CALL sp_crear_nota(?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->_db->prepare($query);
-        $stmt->bind_param('sssssisi', $titulo, $fecha, $hora, $ubicacion, $correo, $repetir, $tiempo_repetir, $actividad);
-        $stmt->execute();
-
-        return $stmt;
-    }
-
-
-
-    //No me funciono el filtrar, asique me invente una cochinada
     public function filtrar_nota($filtro, $dato)
     {
         $notas = [];
@@ -87,8 +114,7 @@ class Nota extends Conexion
 
         return $notas;
     }
-
-
+    
     public function notas_hoy()
     {
         $notas = [];
@@ -103,5 +129,6 @@ class Nota extends Conexion
         }
 
         return $notas;
-    }
+    } 
+    
 }

@@ -26,7 +26,7 @@
     </header>
 
     <main class="main">
-        <h3>Actividades Para hoy</h3>
+        <h1>Actividades Para hoy</h1>
 
         <div class="nav">
             <a href="agregar.php">Agregar Actividad</a>
@@ -78,16 +78,7 @@
                 <?php } ?>
             </section>
             <section class="proximas_actividades">
-                <h5>Sus proximas actividades son:</h5>
-                <ul>
-                    <li>
-                        <div>
-                            <h5>Nombre actividad</h5>
-                            <p>hora</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+              
         </section>
 
     </main>

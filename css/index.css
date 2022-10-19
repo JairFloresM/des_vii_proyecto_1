@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,800;1,300&display=swap');
 
+:root{
+
+    --blanco:#fff;
+    --negro333:#333;
+    --negro222:#222;
+    --gris:#808080;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -12,9 +20,16 @@ body {
     min-height: 100vh;
     padding: 1em;
 }
+a{
+    text-decoration: none;
+}
+/*centrar texto*/
 
-.main > h3 {
-    margin-bottom: 2em;
+
+.main > h1 {
+    padding: 10px;
+    margin-bottom: 15px;
+    
 }
 
 
@@ -28,8 +43,8 @@ body {
 }
 
 .card {
-    background: #333;
-    color: #fff;
+    background: var(--negro333);
+    color: var(--blanco);
     padding: 1em;
     border-radius: 10px;
     margin-bottom: 1em;
@@ -54,7 +69,7 @@ body {
 }
 
 .card__header > div > a {
-    color: #fff;
+    color: var(--blanco);
     margin: 0 .5em;
 
     
@@ -118,8 +133,8 @@ body {
 
 .nav > * {
     text-decoration: none;
-    color: #333;
-    border: 2px solid #222;
+    color: var(--negro333);
+    border: 2px solid var(--negro222);
     padding: .5em 1em;
     background: transparent;
     border-radius: 10px;
@@ -127,12 +142,88 @@ body {
 }
 
 .nav > *:hover {
-    background: #222;
-    color: #fff;
+    background: var(--negro222);
+    color: var(--blanco);
 }
-
-
 
 form {
     margin: 2em 0;
+}
+
+/* Agregar */
+.reg{
+    margin-left: 70px;
+
+    
+}
+.centrar-texto{
+    
+    text-align: center; 
+}
+.contenedor{
+    width: 100%;
+    
+    
+}
+.formulario{
+    margin: 20px auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+    border: 1px solid var(--negro333);
+}
+.campo{
+    padding: 5px;
+    
+}
+h3{
+    margin-top: 100px;
+}
+.campo_form{
+    width: 20%;
+    padding: .7em;
+    background: none;
+    border: none;
+    outline: 0;
+    border-bottom: 1px solid var(--negro333);
+}
+.boton{
+    text-decoration: none;
+    color: var(--negro333);
+    border: 2px solid var(--negro222);
+    padding: .5em 1em;
+    background: transparent;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+    
+}
+.boton:hover {
+    background: var(--negro222);
+    color: var(--blanco);
+}
+/* reporte */
+.tabla{
+    border: 1px solid var(--negro333);
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+.tabla td{
+    padding: 10px;
+    border: 1px solid var(--negro333);
+}
+.tabla tr:hover{
+    background-color: var(--gris);
+}
+.formulario-rep{  
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid var(--negro333);
+    
+}
+.filtro{
+    width: 20%;
+    
+}
+.opcion{
+    width: 20%;
 }
